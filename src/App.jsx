@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { Canvas } from "@react-three/fiber";
+import ThreeApp from "./components/ThreeApp.jsx";
+import { SCENE } from "./config/Config.js";
+
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "./styles/styles.css";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <p>
-        Physics demo
-    </p>
-    </div>
+    <Canvas
+        className="canvas3D"
+        camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
+        <ThreeApp />
+      </Canvas>
   )
 }
 

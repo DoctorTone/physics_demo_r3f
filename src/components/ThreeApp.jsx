@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Sphere } from "@react-three/drei";
 import { SCENE } from "../config/Config.js";
 
 const ThreeApp = () => {
@@ -7,6 +7,7 @@ const ThreeApp = () => {
     <>
       <ambientLight intensity={SCENE.ambientIntensity} />
       <pointLight position={SCENE.lightPosition} />
+      <Sphere />
       <OrbitControls />
     </>
   );

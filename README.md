@@ -1,3 +1,3 @@
-# physics_demo_r3f
+# Physics demo
 
 Game demonstrating physics effects in react three fiber

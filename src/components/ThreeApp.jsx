@@ -1,5 +1,6 @@
 import { OrbitControls, Sphere } from "@react-three/drei";
 import { SCENE } from "../config/Config.js";
+import Floor from "./Floor.jsx";
 
 const ThreeApp = () => {
 
@@ -7,7 +8,8 @@ const ThreeApp = () => {
     <>
       <ambientLight intensity={SCENE.ambientIntensity} />
       <pointLight position={SCENE.lightPosition} />
-      <Sphere />
+      <Floor />
+      <Sphere position-y={5} material-color="hotpink"/>
       <OrbitControls />
     </>
   );

@@ -1,8 +1,14 @@
 import React from "react";
-import { Cylinder } from "@react-three/drei";
 
-const Pool = () => {
-  return <Cylinder args={[5, 5, 5]} />;
+const Pool = (props) => {
+  return (
+    <group {...props}>
+      <mesh>
+        <cylinderGeometry args={[5, 5, 2]} />
+        <meshStandardMaterial color="blue" />
+      </mesh>
+    </group>
+  );
 };
 
 export default Pool;

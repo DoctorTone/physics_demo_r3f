@@ -25,15 +25,15 @@ const ThreeApp = () => {
           position={[0, 1, 11]}>
           <Sphere onClick={throwSphere} material-color="hotpink" />
         </RigidBody>
-        <RigidBody type="fixed" position={[0, 1, -10]}>
+        <RigidBody type="fixed" position={[3, 2, 0]}>
           <Target />
         </RigidBody>
-        <RigidBody type="fixed">
+        {/* <RigidBody type="fixed">
           <Floor />
-        </RigidBody>
+        </RigidBody> */}
       </Physics>
       <OrbitControls />
-      <Pool />
+      <Pool position={[-5, 0, 0]} />
     </>
   );
 };

@@ -9,14 +9,13 @@ import "@fontsource/roboto/700.css";
 import "./styles/styles.css";
 
 function App() {
-
   return (
     <Canvas
-        className="canvas3D"
-        camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
-        <ThreeApp />
-      </Canvas>
-  )
+      className="canvas3D"
+      camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
+      <ThreeApp />
+    </Canvas>
+  );
 }
 
-export default App
+export default App;

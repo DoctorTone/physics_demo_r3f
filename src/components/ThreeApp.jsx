@@ -4,6 +4,7 @@ import { SCENE } from "../config/Config.js";
 import { Physics, RigidBody } from "@react-three/rapier";
 import Floor from "./Floor.jsx";
 import Target from "./Target.jsx";
+import Pool from "./Pool.jsx";
 
 const ThreeApp = () => {
   const sphereRef = useRef();
@@ -30,8 +31,9 @@ const ThreeApp = () => {
         <RigidBody type="fixed">
           <Floor />
         </RigidBody>
-        <OrbitControls />
       </Physics>
+      <OrbitControls />
+      <Pool />
     </>
   );
 };

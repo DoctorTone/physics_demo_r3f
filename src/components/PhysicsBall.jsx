@@ -9,7 +9,7 @@ const PhysicsBall = props => {
     useEffect(() => {
         if (sphereRef.current) {
             console.log("Use force on ball");
-            sphereRef.current.applyImpulse({ x: 0, y: 100, z: -100 });
+            sphereRef.current.applyImpulse({ x: 0, y: 20, z: -100 });
         }
     }, [])
 
@@ -17,7 +17,7 @@ const PhysicsBall = props => {
     <RigidBody ref={sphereRef}
           colliders="ball"
           restitution={1.5}
-          position={[0, 6, 11]}>
+          position={[0, 2, 11]}>
           <Sphere material-color="hotpink" />
         </RigidBody>
     )

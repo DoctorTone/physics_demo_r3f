@@ -18,9 +18,9 @@ const ThreeApp = () => {
         <RigidBody type="fixed" position={[3, 2, 0]}>
           <Target />
         </RigidBody>
-        {/* <RigidBody type="fixed">
+        <RigidBody type="fixed">
           <Floor />
-        </RigidBody> */}
+        </RigidBody>
       </Physics>
       <OrbitControls />
       <Pool position={[-5, 0, 0]} />

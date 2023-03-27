@@ -8,7 +8,6 @@ import Pool from "./Pool.jsx";
 import BallManager from "../state/BallManager.jsx";
 
 const ThreeApp = () => {
-
   return (
     <>
       <Physics>

@@ -1,14 +1,17 @@
-import React from "react"
+import React from "react";
+import { SCENE } from "../config/Config.js";
 
-const Floor = props => {
-    return (
-        <group>
-            <mesh>
-            <boxGeometry args={[30, 1, 30]} />
-            <meshStandardMaterial color="grey" />
-            </mesh>
-        </group>
-    )
-}
+const Floor = (props) => {
+  return (
+    <group>
+      <mesh>
+        <boxGeometry
+          args={[SCENE.FLOOR_WIDTH, SCENE.FLOOR_HEIGHT, SCENE.FLOOR_DEPTH]}
+        />
+        <meshStandardMaterial color="grey" />
+      </mesh>
+    </group>
+  );
+};
 
 export default Floor;

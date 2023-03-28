@@ -8,13 +8,9 @@ import Pool from "./Pool.jsx";
 import BallManager from "../state/BallManager.jsx";
 
 const ThreeApp = () => {
-  const clickedIt = (event) => {
-    console.log("Clicked it...");
-  };
-
   return (
     <>
-      <Physics onPointerDown={clickedIt}>
+      <Physics>
         <ambientLight intensity={SCENE.ambientIntensity} />
         <pointLight position={SCENE.lightPosition} />
         <BallManager />
@@ -26,7 +22,7 @@ const ThreeApp = () => {
         </RigidBody>
       </Physics>
       <OrbitControls />
-      <Pool position={[-5, 0, 0]} />
+      <Pool position={SCENE.poolPosition} />
     </>
   );
 };

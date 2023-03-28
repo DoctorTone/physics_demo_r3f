@@ -16,7 +16,7 @@ function App() {
 
   const throwBall = useStore((state) => state.throwBall);
 
-  const getDirection = (event) => {
+  const setDirection = (event) => {
     mouseCoords.set(
       (event.clientX / window.innerWidth) * 2 - 1,
       -(event.clientY / window.innerHeight) * 2 + 1
@@ -24,11 +24,12 @@ function App() {
 
     // DEBUG
     console.log("Coords = ", mouseCoords);
+    throwBall(mouseCoords);
   };
 
   return (
     <Canvas
-      onPointerDown={getDirection}
+      onPointerDown={setDirection}
       className="canvas3D"
       camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
       <ThreeApp />

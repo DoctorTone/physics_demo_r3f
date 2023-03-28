@@ -1,15 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { Sphere } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
+import useStore from "../state/store.jsx";
 
 const PhysicsBall = (props) => {
+  const currentForce = useStore((state) => state.currentForce);
   const sphereRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
       if (sphereRef.current) {
         console.log("Use force on ball");
-        sphereRef.current.applyImpulse({ x: 0, y: 20, z: -100 }, true);
+        sphereRef.current.applyImpulse(currentForce, true);
       }
     }, 100);
   }, []);

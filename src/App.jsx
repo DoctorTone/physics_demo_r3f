@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import ThreeApp from "./components/ThreeApp.jsx";
@@ -11,28 +12,23 @@ import "@fontsource/roboto/700.css";
 import "./styles/styles.css";
 
 function App() {
-  const raycaster = new THREE.Raycaster();
-  const mouseCoords = new THREE.Vector2();
+  const [thrown, setThrown] = useState(false);
 
-  const throwBall = useStore((state) => state.throwBall);
+  const throwBall = () => {
+    setThrown(true);
+  };
 
-  const setDirection = (event) => {
-    mouseCoords.set(
-      (event.clientX / window.innerWidth) * 2 - 1,
-      -(event.clientY / window.innerHeight) * 2 + 1
-    );
-
-    // DEBUG
-    console.log("Coords = ", mouseCoords);
-    throwBall(mouseCoords);
+  const releaseBall = () => {
+    setThrown(false);
   };
 
   return (
     <Canvas
-      onPointerDown={setDirection}
+      onPointerDown={throwBall}
+      onPointerUp={releaseBall}
       className="canvas3D"
       camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
-      <ThreeApp />
+      <ThreeApp throwBall={thrown} />
     </Canvas>
   );
 }

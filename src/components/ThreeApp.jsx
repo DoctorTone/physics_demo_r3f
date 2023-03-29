@@ -7,17 +7,21 @@ import Target from "./Target.jsx";
 import Pool from "./Pool.jsx";
 import BallManager from "../state/BallManager.jsx";
 import { useFrame, useThree } from "@react-three/fiber";
+import useStore from "../state/store.jsx";
 
-const ThreeApp = ({ throwBall }) => {
-  const { raycaster, events } = useThree();
-
-  console.log("Events = ", events);
+const ThreeApp = ({ thrown }) => {
+  const { raycaster } = useThree();
+  const throwBall = useStore((state) => state.throwBall);
 
   useEffect(() => {
-    if (throwBall) {
-      console.log("Throw ball");
+    if (thrown) {
+      throwBall(raycaster.ray.direction, raycaster.ray.origin);
     }
-  }, [throwBall]);
+  }, [thrown]);
+
+  const hitTarget = (event) => {
+    console.log("Hit target...");
+  };
 
   return (
     <>
@@ -25,7 +29,10 @@ const ThreeApp = ({ throwBall }) => {
         <ambientLight intensity={SCENE.ambientIntensity} />
         <pointLight position={SCENE.lightPosition} />
         <BallManager />
-        <RigidBody type="fixed" position={SCENE.targetPosition}>
+        <RigidBody
+          type="fixed"
+          position={SCENE.targetPosition}
+          onCollisionEnter={hitTarget}>
           <Target />
         </RigidBody>
         <RigidBody type="fixed">

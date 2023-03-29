@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
-const FORCE_SCALE_X = 70;
-const FORCE_SCALE_Y = 50;
+const FORCE_SCALE_X = 110;
+const FORCE_SCALE_Y = 70;
 
 const useStore = create((set) => ({
   numBalls: 0,
@@ -11,7 +11,7 @@ const useStore = create((set) => ({
     z: -100,
   },
   balls: [],
-  throwBall: (force) => {
+  throwBall: (force, position) => {
     set({
       currentForce: {
         x: force.x * FORCE_SCALE_X,
@@ -20,7 +20,13 @@ const useStore = create((set) => ({
       },
     });
     set((state) => ({
-      balls: [...state.balls, { key: `ball${state.numBalls}` }],
+      balls: [
+        ...state.balls,
+        {
+          key: `ball${state.numBalls}`,
+          position: [position.x, position.y, position.z],
+        },
+      ],
     }));
     set((state) => ({ numBalls: state.numBalls + 1 }));
   },

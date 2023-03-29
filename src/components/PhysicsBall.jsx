@@ -3,14 +3,13 @@ import { Sphere } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import useStore from "../state/store.jsx";
 
-const PhysicsBall = (props) => {
+const PhysicsBall = ({ position }) => {
   const currentForce = useStore((state) => state.currentForce);
   const sphereRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
       if (sphereRef.current) {
-        console.log("Use force on ball");
         sphereRef.current.applyImpulse(currentForce, true);
       }
     }, 100);
@@ -21,7 +20,7 @@ const PhysicsBall = (props) => {
       ref={sphereRef}
       colliders="ball"
       restitution={1.5}
-      position={[0, 1, 15]}>
+      position={position}>
       <Sphere material-color="hotpink" />
     </RigidBody>
   );

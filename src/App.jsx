@@ -3,7 +3,6 @@ import { Canvas, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import ThreeApp from "./components/ThreeApp.jsx";
 import { SCENE } from "./config/Config.js";
-import useStore from "./state/store.jsx";
 
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -12,14 +11,14 @@ import "@fontsource/roboto/700.css";
 import "./styles/styles.css";
 
 function App() {
-  const [thrown, setThrown] = useState(false);
+  const [throwIt, setThrow] = useState(false);
 
   const throwBall = () => {
-    setThrown(true);
+    setThrow(true);
   };
 
   const releaseBall = () => {
-    setThrown(false);
+    setThrow(false);
   };
 
   return (
@@ -28,7 +27,7 @@ function App() {
       onPointerUp={releaseBall}
       className="canvas3D"
       camera={{ position: SCENE.cameraPosition, fov: SCENE.fov }}>
-      <ThreeApp throwBall={thrown} />
+      <ThreeApp thrown={throwIt} />
     </Canvas>
   );
 }

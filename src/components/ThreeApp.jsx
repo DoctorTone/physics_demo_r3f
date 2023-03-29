@@ -20,7 +20,7 @@ const ThreeApp = ({ thrown }) => {
   }, [thrown]);
 
   const hitTarget = (event) => {
-    console.log("Hit target...");
+    console.log("Hit target...", event);
   };
 
   return (

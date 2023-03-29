@@ -9,6 +9,12 @@ const Pool = (props) => {
   const { nodes, materials } = useGLTF("src/assets/pool.glb");
   return (
     <group {...props} dispose={null} scale={1.1}>
+      <group>
+        <mesh position={[-0.5, 3, 0]}>
+          <cylinderGeometry args={[2.25, 2.25, 1]} />
+          <meshStandardMaterial color="brown" />
+        </mesh>
+      </group>
       <group position={[-0.43, 0.81, 2.51]} scale={0.42}>
         <mesh
           castShadow

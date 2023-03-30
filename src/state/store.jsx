@@ -30,6 +30,8 @@ const useStore = create((set) => ({
     }));
     set((state) => ({ numBalls: state.numBalls + 1 }));
   },
+  showCover: true,
+  removeCover: () => {set({showCover: false})},
 }));
 
 export default useStore;

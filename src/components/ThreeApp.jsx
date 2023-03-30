@@ -12,6 +12,7 @@ import useStore from "../state/store.jsx";
 const ThreeApp = ({ thrown }) => {
   const { raycaster } = useThree();
   const throwBall = useStore((state) => state.throwBall);
+  const removeCover = useStore(state => state.removeCover);
 
   useEffect(() => {
     if (thrown) {
@@ -20,7 +21,8 @@ const ThreeApp = ({ thrown }) => {
   }, [thrown]);
 
   const hitTarget = (event) => {
-    console.log("Hit target...", event);
+    console.log("Hit target...");
+    removeCover();
   };
 
   return (

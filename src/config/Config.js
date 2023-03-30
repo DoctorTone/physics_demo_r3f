@@ -7,7 +7,7 @@ const SCENE = {
   FLOOR_WIDTH: 50,
   FLOOR_HEIGHT: 1,
   FLOOR_DEPTH: 40,
-  targetPosition: [1, 7, 7],
+  targetPosition: [[1, 7, 7], [3, 7, 7], [5, 7, 7]],
 };
 
 export { SCENE };

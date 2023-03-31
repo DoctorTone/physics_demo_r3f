@@ -1,28 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Target from "./Target.jsx";
 import { RigidBody } from "@react-three/rapier";
 import { SCENE } from "../config/Config.js";
+import useStore from "../state/store.jsx";
 
-const TargetArray = props => {
-const targets = [0, 1, 2];
+const TargetArray = () => {
+  const [targetsHit, setTargetsHit] = useState({
+    target0: "No",
+    target1: "No",
+    target2: "No",
+  });
+  const removeCover = useStore((state) => state.removeCover);
 
-const hitTarget = (event) => {
-    console.log("Hit target", event);
-}
-    return (
-        <>
-        {targets.map(target => (
-            <RigidBody
-                key={target}
-                name={`target${target}`}
-                type="fixed"
-                position={SCENE.targetPosition[target]}
-                onCollisionEnter={hitTarget}>
-                <Target />
-            </RigidBody>
-        ))}
-        </>
-    )
-}
+  const targets = [0, 1, 2];
+
+  const targetHit = (event) => {
+    const name = event.target.rigidBodyObject.name;
+    setTargetsHit({ ...targetsHit, [name]: "Yes" });
+  };
+
+  useEffect(() => {
+    console.log("Targets = ", targetsHit);
+    if (Object.values(targetsHit).every((hit) => hit === true)) {
+      removeCover();
+    }
+  }, [targetsHit]);
+
+  return (
+    <>
+      {targets.map((target) => (
+        <RigidBody
+          key={target}
+          name={`target${target}`}
+          type="fixed"
+          position={SCENE.targetPosition[target]}
+          onCollisionEnter={targetHit}
+        >
+          <Target />
+        </RigidBody>
+      ))}
+    </>
+  );
+};
 
 export default TargetArray;

@@ -8,6 +8,7 @@ import Pool from "./Pool.jsx";
 import BallManager from "../state/BallManager.jsx";
 import { useFrame, useThree } from "@react-three/fiber";
 import useStore from "../state/store.jsx";
+import Figure from "./Figure.jsx";
 
 const ThreeApp = ({ thrown }) => {
   const { raycaster } = useThree();
@@ -32,6 +33,7 @@ const ThreeApp = ({ thrown }) => {
       </Physics>
       <OrbitControls />
       <Pool position={SCENE.poolPosition} />
+      <Figure scale={SCENE.FIGURE_SCALE} position={SCENE.figurePosition} />
     </>
   );
 };

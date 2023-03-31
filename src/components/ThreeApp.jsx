@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { OrbitControls, Sky } from "@react-three/drei";
+import { OrbitControls, Sky, Stage } from "@react-three/drei";
 import { SCENE } from "../config/Config.js";
 import { Physics, RigidBody } from "@react-three/rapier";
 import Floor from "./Floor.jsx";

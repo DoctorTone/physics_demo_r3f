@@ -12,7 +12,7 @@ const SCENE = {
     [3, 7, 7],
     [5, 7, 7],
   ],
-  FIGURE_SCALE: 0.04,
+  FIGURE_SCALE: 4,
   figurePosition: [-7.25, 4.75, 8],
 };
 

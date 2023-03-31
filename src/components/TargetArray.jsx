@@ -17,7 +17,6 @@ const TargetArray = () => {
   };
 
   useEffect(() => {
-    console.log("Targets = ", targetsHit);
     if (Object.values(targetsHit).every((hit) => hit === true)) {
       removeCover();
     }
@@ -31,8 +30,7 @@ const TargetArray = () => {
           name={`target${target}`}
           type="fixed"
           position={SCENE.targetPosition[target]}
-          onCollisionEnter={targetHit}
-        >
+          onCollisionEnter={targetHit}>
           <Target name={`target${target}`} />
         </RigidBody>
       ))}

@@ -9,13 +9,11 @@ import useStore from "../state/store.jsx";
 const Target = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF("src/assets/target.gltf");
-  console.log("Mats = ", materials);
   const targetsHit = useStore((state) => state.targetsHit);
   const [beenHit, setBeenHit] = useState(false);
 
   useEffect(() => {
     if (targetsHit[group.current.name]) {
-      console.log("Material");
       setBeenHit(true);
     }
   }, [targetsHit]);

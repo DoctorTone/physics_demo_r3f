@@ -10,10 +10,8 @@ const Pool = (props) => {
   const woodTexture = useTexture("/src/assets/wood.jpg");
   const { nodes, materials } = useGLTF("src/assets/pool.glb");
 
-  const showCover = useStore(state => state.showCover);
-  // DEBUG
-  console.log("Cover = ", showCover);
-  
+  const showCover = useStore((state) => state.showCover);
+
   return (
     <group {...props} dispose={null} scale={1.1}>
       <group visible={showCover}>

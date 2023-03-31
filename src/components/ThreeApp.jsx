@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Sky } from "@react-three/drei";
 import { SCENE } from "../config/Config.js";
 import { Physics, RigidBody } from "@react-three/rapier";
 import Floor from "./Floor.jsx";
@@ -22,6 +22,7 @@ const ThreeApp = ({ thrown }) => {
 
   return (
     <>
+      <Sky sunPosition={SCENE.sunPosition} />
       <Physics>
         <ambientLight intensity={SCENE.ambientIntensity} />
         <pointLight position={SCENE.lightPosition} />

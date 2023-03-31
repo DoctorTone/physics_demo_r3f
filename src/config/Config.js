@@ -3,6 +3,7 @@ const SCENE = {
   ambientIntensity: 0.5,
   cameraPosition: [0, 9.5, 26],
   poolPosition: [-7, 1, 8],
+  sunPosition: [-1, 0.15, 0],
   fov: 45,
   FLOOR_WIDTH: 85,
   FLOOR_HEIGHT: 1,

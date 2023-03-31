@@ -13,7 +13,8 @@ const SCENE = {
     [5, 7, 7],
   ],
   FIGURE_SCALE: 4,
-  figurePosition: [-7.25, 4.75, 8],
+  figurePosition: [-7.25, 4.75, 7.25],
+  animationDelay: 500,
 };
 
 export { SCENE };

@@ -44,6 +44,10 @@ const useStore = create((set) => ({
       targetsHit: { ...state.targetsHit, [targetName]: true },
     }));
   },
+  falling: false,
+  animateFigure: () => {
+    set({ falling: true });
+  },
 }));
 
 export default useStore;

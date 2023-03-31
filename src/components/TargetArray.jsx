@@ -8,6 +8,7 @@ const TargetArray = () => {
   const removeCover = useStore((state) => state.removeCover);
   const setTargetsHit = useStore((state) => state.setTargetsHit);
   const targetsHit = useStore((state) => state.targetsHit);
+  const animateFigure = useStore((state) => state.animateFigure);
 
   const targets = [0, 1, 2];
 
@@ -16,9 +17,16 @@ const TargetArray = () => {
     setTargetsHit(name);
   };
 
+  const dropFigure = () => {
+    setTimeout(() => {
+      animateFigure();
+    }, SCENE.animationDelay);
+  };
+
   useEffect(() => {
     if (Object.values(targetsHit).every((hit) => hit === true)) {
       removeCover();
+      dropFigure();
     }
   }, [targetsHit]);
 

@@ -16,12 +16,13 @@ const TargetArray = () => {
 
   const targetHit = (event) => {
     const name = event.target.rigidBodyObject.name;
-    setTargetsHit({ ...targetsHit, [name]: "Yes" });
+    console.log("Name = ", name);
+    setTargetsHit((targetsHit) => ({ ...targetsHit, [name]: "Yes" }));
   };
 
   useEffect(() => {
     console.log("Targets = ", targetsHit);
-    if (Object.values(targetsHit).every((hit) => hit === true)) {
+    if (Object.values(targetsHit).every((hit) => hit === "Yes")) {
       removeCover();
     }
   }, [targetsHit]);

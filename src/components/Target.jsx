@@ -8,8 +8,9 @@ import { useGLTF } from "@react-three/drei";
 const Target = (props) => {
   const group = useRef();
   const { nodes, materials } = useGLTF("src/assets/target.gltf");
+
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} name={props.name}>
       <group rotation={[Math.PI / 2, 0, 0]}>
         <mesh
           geometry={nodes.Cylinder015.geometry}

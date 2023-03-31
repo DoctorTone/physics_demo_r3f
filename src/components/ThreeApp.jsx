@@ -12,18 +12,12 @@ import useStore from "../state/store.jsx";
 const ThreeApp = ({ thrown }) => {
   const { raycaster } = useThree();
   const throwBall = useStore((state) => state.throwBall);
-  const removeCover = useStore(state => state.removeCover);
 
   useEffect(() => {
     if (thrown) {
       throwBall(raycaster.ray.direction, raycaster.ray.origin);
     }
   }, [thrown]);
-
-  const hitTarget = (event) => {
-    console.log("Hit target...");
-    removeCover();
-  };
 
   return (
     <>

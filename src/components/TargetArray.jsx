@@ -5,24 +5,20 @@ import { SCENE } from "../config/Config.js";
 import useStore from "../state/store.jsx";
 
 const TargetArray = () => {
-  const [targetsHit, setTargetsHit] = useState({
-    target0: "No",
-    target1: "No",
-    target2: "No",
-  });
   const removeCover = useStore((state) => state.removeCover);
+  const setTargetsHit = useStore((state) => state.setTargetsHit);
+  const targetsHit = useStore((state) => state.targetsHit);
 
   const targets = [0, 1, 2];
 
   const targetHit = (event) => {
     const name = event.target.rigidBodyObject.name;
-    console.log("Name = ", name);
-    setTargetsHit((targetsHit) => ({ ...targetsHit, [name]: "Yes" }));
+    setTargetsHit(name);
   };
 
   useEffect(() => {
     console.log("Targets = ", targetsHit);
-    if (Object.values(targetsHit).every((hit) => hit === "Yes")) {
+    if (Object.values(targetsHit).every((hit) => hit === true)) {
       removeCover();
     }
   }, [targetsHit]);
@@ -37,7 +33,7 @@ const TargetArray = () => {
           position={SCENE.targetPosition[target]}
           onCollisionEnter={targetHit}
         >
-          <Target />
+          <Target name={`target${target}`} />
         </RigidBody>
       ))}
     </>

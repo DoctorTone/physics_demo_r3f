@@ -34,6 +34,16 @@ const useStore = create((set) => ({
   removeCover: () => {
     set({ showCover: false });
   },
+  targetsHit: {
+    target0: false,
+    target1: false,
+    target2: false,
+  },
+  setTargetsHit: (targetName) => {
+    set((state) => ({
+      targetsHit: { ...state.targetsHit, [targetName]: true },
+    }));
+  },
 }));
 
 export default useStore;

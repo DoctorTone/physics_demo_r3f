@@ -11,10 +11,13 @@ const Target = (props) => {
   const { nodes, materials } = useGLTF("src/assets/target.gltf");
   const targetsHit = useStore((state) => state.targetsHit);
   const [beenHit, setBeenHit] = useState(false);
+  const [hitSound] = useState(() => new Audio("./audio/success.wav"));
 
   useEffect(() => {
     if (targetsHit[group.current.name]) {
       setBeenHit(true);
+      hitSound.volume = 0.25;
+      hitSound.play();
     }
   }, [targetsHit]);
 

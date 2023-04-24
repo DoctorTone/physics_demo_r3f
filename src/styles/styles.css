@@ -24,3 +24,7 @@ body {
 .text-orange {
   color: orange;
 }
+#textInfo {
+  right: 5%;
+  bottom: 10%;
+}

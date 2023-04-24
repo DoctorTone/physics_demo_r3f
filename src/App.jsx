@@ -12,9 +12,11 @@ import "./styles/styles.css";
 
 function App() {
   const [throwIt, setThrow] = useState(false);
+  const [throwSound] = useState(() => new Audio("./audio/pop.wav"));
 
   const throwBall = () => {
     setThrow(true);
+    throwSound.play();
   };
 
   const releaseBall = () => {

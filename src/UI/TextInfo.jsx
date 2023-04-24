@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 
 const TextInfo = () => {
   return (
-    <div id="textInfo" className="panel text-center">
+    <div id="textInfo" className="panel text-center outline">
       <Typography variant="h5">
         Use the mouse to aim and click to throw!
       </Typography>

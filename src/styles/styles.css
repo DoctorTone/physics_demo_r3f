@@ -24,6 +24,11 @@ body {
 .text-orange {
   color: orange;
 }
+.outline {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0 1% 0 1%;
+}
 #textInfo {
   right: 5%;
   bottom: 10%;

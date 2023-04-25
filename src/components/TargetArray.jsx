@@ -10,6 +10,8 @@ const TargetArray = () => {
   const targetsHit = useStore((state) => state.targetsHit);
   const animateFigure = useStore((state) => state.animateFigure);
 
+  const [fallSound] = useState(() => new Audio("./audio/fall.wav"));
+
   const targets = [0, 1, 2];
 
   const targetHit = (event) => {
@@ -20,6 +22,7 @@ const TargetArray = () => {
   const dropFigure = () => {
     setTimeout(() => {
       animateFigure();
+      fallSound.play();
     }, SCENE.animationDelay);
   };
 

@@ -9,7 +9,7 @@ import useStore from "../state/store.jsx";
 
 const Figure = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/src/assets/figure.gltf");
+  const { nodes, materials, animations } = useGLTF("./assets/figure.gltf");
   const { actions } = useAnimations(animations, group);
   const falling = useStore((state) => state.falling);
 
@@ -46,6 +46,6 @@ const Figure = (props) => {
   );
 };
 
-useGLTF.preload("/src/assets/figure.gltf");
+useGLTF.preload("./assets/figure.gltf");
 
 export default Figure;

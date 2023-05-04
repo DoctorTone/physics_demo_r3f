@@ -7,8 +7,8 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import useStore from "../state/store.jsx";
 
 const Pool = (props) => {
-  const woodTexture = useTexture("/src/assets/wood.jpg");
-  const { nodes, materials } = useGLTF("src/assets/pool.glb");
+  const woodTexture = useTexture("./assets/wood.jpg");
+  const { nodes, materials } = useGLTF("./assets/pool.glb");
 
   const showCover = useStore((state) => state.showCover);
 
@@ -51,7 +51,8 @@ const Pool = (props) => {
       <group
         position={[-0.43, 2.39, 0]}
         rotation={[-Math.PI, 0.08, -Math.PI]}
-        scale={0.39}>
+        scale={0.39}
+      >
         <mesh
           castShadow
           receiveShadow
@@ -258,6 +259,6 @@ const Pool = (props) => {
   );
 };
 
-useGLTF.preload("src/assets/pool.glb");
+useGLTF.preload("./assets/pool.glb");
 
 export default Pool;

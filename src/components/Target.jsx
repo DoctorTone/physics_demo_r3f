@@ -8,7 +8,7 @@ import useStore from "../state/store.jsx";
 
 const Target = (props) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("src/assets/target.gltf");
+  const { nodes, materials } = useGLTF("./assets/target.gltf");
   const targetsHit = useStore((state) => state.targetsHit);
   const [beenHit, setBeenHit] = useState(false);
   const [hitSound] = useState(() => new Audio("./audio/success.wav"));
@@ -40,6 +40,6 @@ const Target = (props) => {
   );
 };
 
-useGLTF.preload("src/assets/target.gltf");
+useGLTF.preload("./assets/target.gltf");
 
 export default Target;

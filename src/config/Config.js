@@ -18,4 +18,15 @@ const SCENE = {
   animationDelay: 500,
 };
 
-export { SCENE };
+const getDeviceStatus = () => {
+  // See if mobile
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (error) {
+    // Must be desktop
+    return false;
+  }
+};
+
+export { SCENE, getDeviceStatus };

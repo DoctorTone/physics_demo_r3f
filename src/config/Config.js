@@ -1,7 +1,7 @@
 const SCENE = {
   lightPosition: [10, 10, 10],
   ambientIntensity: 0.5,
-  cameraPosition: [0, 9.5, 26],
+  cameraPosition: [0, 10, 30],
   poolPosition: [-7, 1, 8],
   sunPosition: [-1, 0.15, 0],
   fov: 45,

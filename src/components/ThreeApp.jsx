@@ -20,6 +20,10 @@ const ThreeApp = ({ thrown }) => {
     }
   }, [thrown]);
 
+  useFrame((state) => {
+    console.log("Cam = ", state.camera.position);
+  });
+
   return (
     <>
       <Sky sunPosition={SCENE.sunPosition} />

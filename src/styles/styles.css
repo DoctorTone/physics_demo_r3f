@@ -24,7 +24,12 @@ body {
 .text-orange {
   color: orange;
 }
-.outline {
+.outlineRed {
+  border: 2px solid orangered;
+  border-radius: 10px;
+  padding: 0 1% 0 1%;
+}
+.outlineBlack {
   border: 2px solid black;
   border-radius: 10px;
   padding: 0 1% 0 1%;
@@ -32,4 +37,8 @@ body {
 #textInfo {
   right: 5%;
   bottom: 10%;
+}
+#textTitle {
+  right: 10%;
+  top: 5%;
 }

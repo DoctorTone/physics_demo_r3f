@@ -21,7 +21,7 @@ const ThreeApp = ({ thrown }) => {
   }, [thrown]);
 
   useFrame((state) => {
-    console.log("Cam = ", state.camera.position);
+    // console.log("Cam = ", state.camera.position);
   });
 
   return (

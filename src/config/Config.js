@@ -29,4 +29,58 @@ const getDeviceStatus = () => {
   }
 };
 
-export { SCENE, getDeviceStatus };
+const SCREEN_SIZES = {
+  SMALL: 576,
+  MEDIUM: 768,
+  LARGE: 992,
+  EXTRA_LARGE: 1200,
+  EXTRA_EXTRA_LARGE: 1400,
+};
+
+const getCameraPosition = (screenWidth) => {
+  let screenSize = SCREEN_SIZES.SMALL;
+
+  if (screenWidth >= SCREEN_SIZES.SMALL && screenWidth < SCREEN_SIZES.MEDIUM) {
+    screenSize = SCREEN_SIZES.SMALL;
+  }
+
+  if (screenWidth >= SCREEN_SIZES.MEDIUM && screenWidth < SCREEN_SIZES.LARGE) {
+    screenSize = SCREEN_SIZES.MEDIUM;
+  }
+
+  if (
+    screenWidth >= SCREEN_SIZES.LARGE &&
+    screenWidth < SCREEN_SIZES.EXTRA_LARGE
+  ) {
+    screenSize = SCREEN_SIZES.LARGE;
+  }
+
+  if (
+    screenWidth >= SCREEN_SIZES.EXTRA_LARGE &&
+    screenWidth < SCREEN_SIZES.EXTRA_EXTRA_LARGE
+  ) {
+    screenSize = SCREEN_SIZES.EXTRA_LARGE;
+  }
+
+  if (screenWidth >= SCREEN_SIZES.EXTRA_EXTRA_LARGE) {
+    screenSize = SCREEN_SIZES.EXTRA_EXTRA_LARGE;
+  }
+
+  let camPos;
+  switch (screenSize) {
+    case SCREEN_SIZES.SMALL:
+      camPos = [0, 15, 50];
+      break;
+
+    case SCREEN_SIZES.MEDIUM:
+      camPos = [0, 15, 40];
+      break;
+
+    default:
+      camPos = [0, 10, 30];
+  }
+
+  return camPos;
+};
+
+export { SCENE, getDeviceStatus, getCameraPosition };

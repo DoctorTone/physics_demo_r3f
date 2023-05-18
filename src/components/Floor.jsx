@@ -8,7 +8,7 @@ const Floor = (props) => {
         <boxGeometry
           args={[SCENE.FLOOR_WIDTH, SCENE.FLOOR_HEIGHT, SCENE.FLOOR_DEPTH]}
         />
-        <meshStandardMaterial color="green" />
+        <meshLambertMaterial color="green" />
       </mesh>
     </group>
   );

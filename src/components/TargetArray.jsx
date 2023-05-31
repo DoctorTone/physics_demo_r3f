@@ -3,6 +3,7 @@ import Target from "./Target.jsx";
 import { RigidBody } from "@react-three/rapier";
 import { SCENE } from "../config/Config.js";
 import useStore from "../state/store.jsx";
+import useSound from "use-sound";
 
 const TargetArray = () => {
   const removeCover = useStore((state) => state.removeCover);
@@ -10,7 +11,7 @@ const TargetArray = () => {
   const targetsHit = useStore((state) => state.targetsHit);
   const animateFigure = useStore((state) => state.animateFigure);
 
-  const [fallSound] = useState(() => new Audio("./audio/fall.wav"));
+  const [fallSound] = useSound("./audio/fall.wav", { volume: 0.5 });
 
   const targets = [0, 1, 2];
 
@@ -22,7 +23,7 @@ const TargetArray = () => {
   const dropFigure = () => {
     setTimeout(() => {
       animateFigure();
-      fallSound.play();
+      fallSound();
     }, SCENE.animationDelay);
   };
 

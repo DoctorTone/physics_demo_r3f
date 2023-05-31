@@ -5,34 +5,36 @@ import { SCENE } from "./config/Config.js";
 import TextInfo from "./UI/TextInfo.jsx";
 import TextTitle from "./UI/TextTitle.jsx";
 import { getCameraPosition } from "./config/Config.js";
+import useSound from "use-sound";
+import useStore from "./state/store.jsx";
 
 import "./styles/styles.css";
 
 function App() {
-  const [throwIt, setThrow] = useState(false);
-  const [throwSound] = useState(() => new Audio("./audio/pop.wav"));
+  const [throwSound] = useSound("./audio/pop.wav", { volume: 0.5 });
+  const setThrowIt = useStore((state) => state.setThrowIt);
 
-  const throwBall = () => {
-    setThrow(true);
-    throwSound.play();
+  const throwBall = (event) => {
+    setThrowIt(true);
+    throwSound();
   };
 
-  const releaseBall = () => {
-    setThrow(false);
+  const onMenu = (event) => {
+    event.preventDefault();
   };
 
   const camPosition = getCameraPosition(window.innerWidth);
   // DEBUG
-  console.log(`Width = ${window.innerWidth} Pos = ${camPosition}`);
+  // console.log(`Width = ${window.innerWidth} Pos = ${camPosition}`);
 
   return (
     <>
       <Canvas
         onPointerDown={throwBall}
-        onPointerUp={releaseBall}
+        onContextMenu={onMenu}
         className="canvas3D"
         camera={{ position: camPosition, fov: SCENE.fov }}>
-        <ThreeApp thrown={throwIt} />
+        <ThreeApp />
       </Canvas>
       <TextInfo />
       <TextTitle />

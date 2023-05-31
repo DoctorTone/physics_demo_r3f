@@ -12,17 +12,20 @@ import Figure from "./Figure.jsx";
 
 const ThreeApp = ({ thrown }) => {
   const { raycaster } = useThree();
+  const throwIt = useStore((state) => state.throwIt);
+  const setThrowIt = useStore((state) => state.setThrowIt);
   const throwBall = useStore((state) => state.throwBall);
 
   useEffect(() => {
-    if (thrown) {
+    if (throwIt) {
       throwBall(raycaster.ray.direction, raycaster.ray.origin);
+      setThrowIt(false);
     }
-  }, [thrown]);
+  }, [throwIt]);
 
-  useFrame((state) => {
-    // console.log("Cam = ", state.camera.position);
-  });
+  // useFrame((state) => {
+  //   console.log("Cam = ", state.camera.position);
+  // });
 
   return (
     <>

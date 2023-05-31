@@ -11,6 +11,10 @@ const useStore = create((set) => ({
     z: -100,
   },
   balls: [],
+  throwIt: false,
+  setThrowIt: (throwStatus) => {
+    set({ throwIt: throwStatus });
+  },
   throwBall: (force, position) => {
     set({
       currentForce: {

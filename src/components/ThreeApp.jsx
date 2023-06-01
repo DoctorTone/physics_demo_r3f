@@ -39,7 +39,7 @@ const ThreeApp = ({ thrown }) => {
           <Floor />
         </RigidBody>
       </Physics>
-      <OrbitControls enablePan={false} enableRotate={false} />
+      {/* <OrbitControls enablePan={false} enableRotate={false} /> */}
       <Pool position={SCENE.poolPosition} />
       <Figure scale={SCENE.FIGURE_SCALE} position={SCENE.figurePosition} />
     </>

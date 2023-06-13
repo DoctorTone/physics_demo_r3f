@@ -1,14 +1,15 @@
-import { useRef, useEffect } from "react";
-import { OrbitControls, Sky, Stage } from "@react-three/drei";
+import { useEffect, Suspense } from "react";
+import { Sky } from "@react-three/drei";
 import { SCENE } from "../config/Config.js";
 import { Physics, RigidBody } from "@react-three/rapier";
 import Floor from "./Floor.jsx";
 import TargetArray from "./TargetArray.jsx";
 import Pool from "./Pool.jsx";
 import BallManager from "../state/BallManager.jsx";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import useStore from "../state/store.jsx";
 import Figure from "./Figure.jsx";
+import { Loading } from "./Loading.jsx";
 
 const ThreeApp = ({ thrown }) => {
   const { raycaster } = useThree();
@@ -23,25 +24,22 @@ const ThreeApp = ({ thrown }) => {
     }
   }, [throwIt]);
 
-  // useFrame((state) => {
-  //   console.log("Cam = ", state.camera.position);
-  // });
-
   return (
     <>
-      <Sky sunPosition={SCENE.sunPosition} />
-      <Physics>
-        <ambientLight intensity={SCENE.ambientIntensity} />
-        <pointLight position={SCENE.lightPosition} />
-        <BallManager />
-        <TargetArray />
-        <RigidBody type="fixed">
-          <Floor />
-        </RigidBody>
-      </Physics>
-      {/* <OrbitControls enablePan={false} enableRotate={false} /> */}
-      <Pool position={SCENE.poolPosition} />
-      <Figure scale={SCENE.FIGURE_SCALE} position={SCENE.figurePosition} />
+      <Suspense fallback={<Loading />}>
+        <Sky sunPosition={SCENE.sunPosition} />
+        <Physics>
+          <ambientLight intensity={SCENE.ambientIntensity} />
+          <pointLight position={SCENE.lightPosition} />
+          <BallManager />
+          <TargetArray />
+          <RigidBody type="fixed">
+            <Floor />
+          </RigidBody>
+        </Physics>
+        <Pool position={SCENE.poolPosition} />
+        <Figure scale={SCENE.FIGURE_SCALE} position={SCENE.figurePosition} />
+      </Suspense>
     </>
   );
 };

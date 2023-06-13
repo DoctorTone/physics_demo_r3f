@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import React from "react";
+import { Canvas } from "@react-three/fiber";
 import ThreeApp from "./components/ThreeApp.jsx";
 import { SCENE } from "./config/Config.js";
 import TextInfo from "./UI/TextInfo.jsx";
@@ -8,6 +8,7 @@ import { getCameraPosition } from "./config/Config.js";
 import useSound from "use-sound";
 import useStore from "./state/store.jsx";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/styles.css";
 
 function App() {
@@ -24,8 +25,6 @@ function App() {
   };
 
   const camPosition = getCameraPosition(window.innerWidth);
-  // DEBUG
-  // console.log(`Width = ${window.innerWidth} Pos = ${camPosition}`);
 
   return (
     <>

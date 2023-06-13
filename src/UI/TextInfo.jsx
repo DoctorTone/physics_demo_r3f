@@ -5,8 +5,15 @@ import { getDeviceStatus } from "../config/Config.js";
 const TextInfo = () => {
   const isMobile = getDeviceStatus();
 
+  const handleMenu = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div id="textInfo" className="panel text-center outlineBlack">
+    <div
+      id="textInfo"
+      className="panel text-center outlineBlack"
+      onContextMenu={handleMenu}>
       <Typography variant="h5">
         {isMobile
           ? "Tap on screen to aim and throw!"
